@@ -97,13 +97,15 @@ void set_device_props(const string fingerprint, const string description,
 void load_device_properties() {
     string hwname = GetProperty("ro.boot.hwname", "");
 
-    string fingerprint = "google/sunfish/sunfish:11/RQ1A.210205.004/7038034:user/release-keys";
-    string description = "sunfish-user 11 RQ1A.210205.004 7038034 release-keys";
+    string fingerprint = "google/redfin/redfin:11/RQ2A.210305.006/7119741:user/release-keys";
+    string description = "redfin-user 11 RQ2A.210305.006 7119741 release-keys";
 
     if (hwname == "surya") {
-        set_device_props(fingerprint, description, "Poco", "surya", "M2007J20CG");
+        set_device_props(fingerprint, description, "Poco", "surya", "POCO X3 NFC");
+        property_override("ro.product.mod_device", "surya_global");
     } else if (hwname == "karna") {
-        set_device_props(fingerprint, description, "Poco", "karna", "M2007J20CI");
+        set_device_props(fingerprint, description, "Poco", "karna", "POCO X3");
+        property_override("ro.product.mod_device", "surya_in_global");
     }
 }
 
